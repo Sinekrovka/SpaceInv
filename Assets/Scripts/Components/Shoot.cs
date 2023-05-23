@@ -32,8 +32,10 @@ public class Shoot : MonoBehaviour
         _rb2d.simulated = true;
         _rb2d.position = playerPosition;
         _rb2d.DOMoveY(_rb2d.position.y + _maxY*index, _speedMovement)
-            .OnComplete(StopMovement);
-        _sprite.enabled = true;
+            .OnComplete(StopMovement).OnStart(delegate
+            {
+                _sprite.enabled = true; 
+            });
     }
 
     private void StopMovement()

@@ -21,6 +21,7 @@ public class Shoot : MonoBehaviour
     {
         _damage = damage;
         _sprite.color = color;
+        _rb2d.position = new Vector2(-15f, -15f);
         _sprite.enabled = false;
         _rb2d.simulated = false;
         gameObject.layer = layer;
@@ -41,6 +42,7 @@ public class Shoot : MonoBehaviour
     private void StopMovement()
     {
         _sprite.enabled = false;
+        _rb2d.position = new Vector2(-15f, -15f);
         _rb2d.simulated = false;
         _shootController.ReturnToPoolPlayer(this, gameObject.layer);
     }
